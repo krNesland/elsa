@@ -1,3 +1,7 @@
+"""
+A single, independent prompt.
+"""
+
 import dotenv
 from openai import OpenAI
 

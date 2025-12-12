@@ -1,3 +1,7 @@
+"""
+Providing some instructions (system prompt) to the model.
+"""
+
 import dotenv
 from openai import OpenAI
 
