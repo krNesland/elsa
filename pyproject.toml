@@ -1,0 +1,39 @@
+[project]
+name = "elsa"
+version = "0.1.0"
+description = "Elsa - Winternship 2026 quickstart"
+readme = "README.md"
+requires-python = ">=3.12.11,<3.13"
+
+dependencies = [
+    "openai>=2.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.2.0",
+    "pre-commit",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+# Available rules: https://docs.astral.sh/ruff/rules/
+select = [
+    "I", # isort, use ruff check --fix to apply
+    "TC004", # runtime-import-in-type-checking-block https://docs.astral.sh/ruff/rules/runtime-import-in-type-checking-block/
+    "B006", # disallow mutable defaults
+    "PGH003",  # https://docs.astral.sh/ruff/rules/blanket-type-ignore/
+    "SIM107", # ban return in finally clause
+    "PT018", # ban composite asserts
+    "TID251", # Banned imports
+    "F901", # Don't raise NotImplemented
+    "F402",	# import-shadowed-by-loop-var 	Import {name} from {row} shadowed by loop variable
+    "RUF018", # assignment in asserts
+    "PIE796", # non-unique enums, Note this doesn't check StrEnum/IntEnum...
+    "A003", # https://docs.astral.sh/ruff/rules/builtin-attribute-shadowing/
+]
