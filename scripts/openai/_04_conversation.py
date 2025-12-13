@@ -1,0 +1,24 @@
+"""
+Going beyond a single independent prompt.
+"""
+
+import dotenv
+from openai import OpenAI
+
+client = OpenAI(api_key=dotenv.get_key(".env", "OPENAI_API_KEY"))
+
+conversation = client.conversations.create()
+
+response = client.responses.create(
+    model="gpt-5-nano",
+    input="In one sentence, what is the most likely reason why the project name `elsa` was chosen for this 2026 **Winter**nship quickstart project?",
+    conversation=conversation.id,
+)
+
+response = client.responses.create(
+    model="gpt-5-nano",
+    input="What was my first prompt?",
+    conversation=conversation.id,
+)
+
+print("\nResponse: ", response.output_text)
