@@ -6,7 +6,6 @@ import dotenv
 from openai import OpenAI
 
 client = OpenAI(api_key=dotenv.get_key(".env", "OPENAI_API_KEY"))
-
 conversation = client.conversations.create()
 
 response = client.responses.create(

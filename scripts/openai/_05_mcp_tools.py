@@ -1,3 +1,7 @@
+"""
+Setting up an MCP server with tools.
+"""
+
 import json
 
 import pandas as pd

@@ -1,5 +1,7 @@
 """
 A single, independent prompt.
+
+Logs are found here: https://platform.openai.com/logs
 """
 
 import dotenv
