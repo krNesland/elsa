@@ -1,7 +1,7 @@
 """
 Thought it would be possible to implement it in a more high-level way as seen here: https://platform.openai.com/docs/quickstart?tool-type=remote-mcp#extend-the-model-with-tools
 
-However, seems like this is not working when the server is running locally. Therefore,having to implement the MCP client ourselves.
+However, seems like this is not working when the server is running locally. Therefore, having to implement the MCP client ourselves.
 
 https://github.com/modelcontextprotocol/python-sdk?tab=readme-ov-file#writing-mcp-clients
 """
@@ -27,9 +27,7 @@ async def main():
     ):
         # Create a session using the client streams
         async with ClientSession(read_stream, write_stream) as session:
-            # Initialize the connection
             await session.initialize()
-            # List available tools
             tools = await session.list_tools()
             print(f"Available tools: {[tool.name for tool in tools.tools]}")
 

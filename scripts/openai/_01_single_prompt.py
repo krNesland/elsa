@@ -1,7 +1,7 @@
 """
 A single, independent prompt.
 
-Logs are found here: https://platform.openai.com/logs
+Responses are found here: https://platform.openai.com/logs?api=responses
 """
 
 import dotenv

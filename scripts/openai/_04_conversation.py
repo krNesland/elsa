@@ -1,5 +1,7 @@
 """
 Going beyond a single independent prompt.
+
+Conversations are found here: https://platform.openai.com/logs?api=conversations
 """
 
 import dotenv
