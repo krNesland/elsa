@@ -13,9 +13,9 @@ data = pd.read_csv("data/titanic.csv")
 
 
 @mcp.tool()
-def get_passenger_names() -> str:
+def get_titanic_passenger_names() -> str:
     """
-    Get the index and name for each passenger.
+    Get the index and name for each Titanic passenger.
     """
     return json.dumps(
         [
@@ -29,9 +29,9 @@ def get_passenger_names() -> str:
 
 
 @mcp.tool()
-def get_passenger_data(idx: int) -> str:
+def get_titanic_passenger_data(idx: int) -> str:
     """
-    Get the data for a passenger, given the passenger's index.
+    Get the data for a Titanic passenger, given the passenger's index.
     """
     return json.dumps(data.iloc[idx].to_dict())
 
