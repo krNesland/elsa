@@ -1,0 +1,1 @@
+Mostly a collection of functionality found in the OpenAI docs: https://platform.openai.com/docs/overview

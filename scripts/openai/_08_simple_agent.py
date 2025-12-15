@@ -34,7 +34,7 @@ agent = Agent(
 async def main():
     await titanic_mcp_server.connect()
     try:
-        result = await Runner.run(agent, input="What fare did Telma Matilda Storm pay for her ticket?")
+        result = await Runner.run(agent, input="What fare did Mr. Kevin Malone pay for his ticket?")
         print(result.final_output)
     finally:
         await titanic_mcp_server.cleanup()
