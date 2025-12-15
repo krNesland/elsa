@@ -1,6 +1,8 @@
 # elsa
 Winternship 2026 onboarding with LLM APIs
 
+For more general knowledge on LLMs, this video bj Andrej Karpathy is recommended: https://www.youtube.com/watch?v=7xTGNNLPyMI
+
 ## .env
 Make sure to have a .env file in the root of the project with an `OPENAI_API_KEY` set
 
