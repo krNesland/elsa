@@ -14,6 +14,8 @@ from mcp import ClientSession
 from mcp.client.streamable_http import streamable_http_client
 from openai import OpenAI
 
+from scripts.openai import OPENAI_MODEL
+
 client = OpenAI(api_key=dotenv.get_key(".env", "OPENAI_API_KEY"))
 conversation = client.conversations.create()
 
@@ -44,7 +46,7 @@ async def main():
             ]
 
             response = client.responses.create(
-                model="gpt-5-nano",
+                model=OPENAI_MODEL,
                 input="How many passengers are called William?",
                 tools=openai_tools,
                 conversation=conversation.id,
@@ -55,7 +57,7 @@ async def main():
 
             result = await session.call_tool(name=item.name, arguments=json.loads(item.arguments))
             response = client.responses.create(
-                model="gpt-5-nano",
+                model=OPENAI_MODEL,
                 input=[
                     {
                         "type": "function_call_output",

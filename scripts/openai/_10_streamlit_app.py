@@ -14,6 +14,8 @@ from agents import Agent, Runner, SQLiteSession
 from agents.mcp.server import MCPServerStreamableHttp, MCPServerStreamableHttpParams
 from dotenv import load_dotenv
 
+from scripts.openai import OPENAI_MODEL
+
 load_dotenv()
 
 # Page config
@@ -82,6 +84,7 @@ def init_agent_and_connect(_async_runner):
         name="Elsa",
         instructions="You are a helpful agent.",
         mcp_servers=[titanic_mcp_server],
+        model=OPENAI_MODEL,
     )
 
     # Connect to the MCP server

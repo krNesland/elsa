@@ -8,6 +8,8 @@ from agents import Agent, Runner, SQLiteSession
 from agents.mcp.server import MCPServerStreamableHttp, MCPServerStreamableHttpParams
 from dotenv import load_dotenv
 
+from scripts.openai import OPENAI_MODEL
+
 load_dotenv()
 
 
@@ -21,6 +23,7 @@ agent = Agent(
     name="Elsa",
     instructions="You are a helpful agent.",
     mcp_servers=[titanic_mcp_server],
+    model=OPENAI_MODEL,
 )
 
 
