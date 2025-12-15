@@ -11,8 +11,14 @@ e.g.
 OPENAI_API_KEY="your_api_key_here"
 ```
 
+## Prerequisites
+Recommend having homebrew for Mac installations
+
+- `uv`: `brew install uv` on Mac
+- `node` `brew install node` on Mac
+
 ## Environment
-Install: ```uv sync``` (for Mac, uv can be installed with homebrew)
+Install: ```uv sync```
 
 ## Pre-commit
 To check for code issues on commit: ```uv run pre-commit install```
