@@ -12,14 +12,14 @@ from agents import Agent, Runner
 from agents.mcp.server import MCPServerStreamableHttp, MCPServerStreamableHttpParams
 from dotenv import load_dotenv
 
-from scripts.openai import OPENAI_MODEL
+from scripts.openai import MCP_SERVER_URL, OPENAI_MODEL
 
 load_dotenv()
 
 
 titanic_mcp_server = MCPServerStreamableHttp(
     params=MCPServerStreamableHttpParams(
-        url="http://localhost:8000/mcp",
+        url=MCP_SERVER_URL,
     )
 )
 

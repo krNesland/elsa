@@ -2,6 +2,8 @@
 A Streamlit application for interacting with the agent.
 
 Got a bit more complex than expected, but it works.
+
+`streamlit run scripts/openai/_10_streamlit_app.py` in console to start it up
 """
 
 import asyncio
@@ -14,7 +16,7 @@ from agents import Agent, Runner, SQLiteSession
 from agents.mcp.server import MCPServerStreamableHttp, MCPServerStreamableHttpParams
 from dotenv import load_dotenv
 
-from scripts.openai import OPENAI_MODEL
+from scripts.openai import MCP_SERVER_URL, OPENAI_MODEL
 
 load_dotenv()
 
@@ -76,7 +78,7 @@ def init_agent_and_connect(_async_runner):
     """Initialize agent and connect to MCP server."""
     titanic_mcp_server = MCPServerStreamableHttp(
         params=MCPServerStreamableHttpParams(
-            url="http://localhost:8000/mcp",
+            url=MCP_SERVER_URL,
         )
     )
 

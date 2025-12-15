@@ -1,9 +1,9 @@
 """
 Thought it would be possible to implement it in a more high-level way as seen here: https://platform.openai.com/docs/quickstart?tool-type=remote-mcp#extend-the-model-with-tools
 
-However, seems like this is not working when the server is running locally. Therefore, having to implement the MCP client ourselves.
+However, seems like this is not working when the server is running locally. Therefore, having to implement the MCP client ourselves (https://github.com/modelcontextprotocol/python-sdk?tab=readme-ov-file#writing-mcp-clients).
 
-https://github.com/modelcontextprotocol/python-sdk?tab=readme-ov-file#writing-mcp-clients
+Note: This script sometimes takes a while to complete.
 """
 
 import asyncio
@@ -14,7 +14,7 @@ from mcp import ClientSession
 from mcp.client.streamable_http import streamable_http_client
 from openai import OpenAI
 
-from scripts.openai import OPENAI_MODEL
+from scripts.openai import MCP_SERVER_URL, OPENAI_MODEL
 
 client = OpenAI(api_key=dotenv.get_key(".env", "OPENAI_API_KEY"))
 conversation = client.conversations.create()
@@ -22,7 +22,7 @@ conversation = client.conversations.create()
 
 async def main():
     # Connect to a streamable HTTP server
-    async with streamable_http_client("http://localhost:8000/mcp") as (
+    async with streamable_http_client(MCP_SERVER_URL) as (
         read_stream,
         write_stream,
         _,

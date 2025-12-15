@@ -1,6 +1,8 @@
 """
 Going beyond a single independent prompt.
 
+Utilizing the conversation concept, we can maintain the conversation history between individual prompts.
+
 Conversations are found here: https://platform.openai.com/logs?api=conversations
 """
 

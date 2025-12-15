@@ -1,5 +1,7 @@
 """
 Going beyond a single independent prompt.
+
+This approach fails as the conversation is not maintained between individual prompts.
 """
 
 import dotenv

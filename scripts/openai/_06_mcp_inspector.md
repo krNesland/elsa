@@ -1,4 +1,4 @@
-Make sure the mcp server is running.
+Make sure the mcp server is running (_05_mcp_tools.py).
 
 Inspect the server with `npx @modelcontextprotocol/inspector`
 
