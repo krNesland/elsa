@@ -1,9 +1,32 @@
 """
-Thought it would be possible to implement it in a more high-level way as seen here: https://platform.openai.com/docs/quickstart?tool-type=remote-mcp#extend-the-model-with-tools
+Querying the locally running MCP server.
 
-However, seems like this is not working when the server is running locally. Therefore, having to implement the MCP client ourselves (https://github.com/modelcontextprotocol/python-sdk?tab=readme-ov-file#writing-mcp-clients).
+Tools for web search and more are already shipped with the OpenAI SDK:
+response = client.responses.create(
+    model="gpt-5",
+    tools=[{"type": "web_search"}],
+    input="What was a positive news story from today?"
+)
 
-Note: This script sometimes takes a while to complete.
+Remote MCP servers can be used like this:
+resp = client.responses.create(
+    model="gpt-5",
+    tools=[
+        {
+            "type": "mcp",
+            "server_label": "dmcp",
+            "server_description": "A Dungeons and Dragons MCP server to assist with dice rolling.",
+            "server_url": "https://dmcp-server.deno.dev/sse",
+            "require_approval": "never",
+        },
+    ],
+    input="Roll 2d4+1",
+)
+
+It is also possible to define your own tools as simple Python functions and provide those to the model.
+
+Note 1: Thought it would be possible to implement it in a more high-level way as seen here: https://platform.openai.com/docs/quickstart?tool-type=remote-mcp#extend-the-model-with-toolsHowever, seems like this is not working when the server is running locally. Therefore, having to implement the MCP client ourselves (https://github.com/modelcontextprotocol/python-sdk?tab=readme-ov-file#writing-mcp-clients).
+Note 2: This script sometimes takes a while to complete.
 """
 
 import asyncio

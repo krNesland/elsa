@@ -1,7 +1,9 @@
 """
 A Streamlit application for interacting with the agent.
 
-Got a bit more complex than expected, but it works.
+Got a bit more complex than expected, but it works with help from Cursor. AsyncRunner is needed because you can't run async code in Streamlit's synchronous environment. `await Runner.run(...)` is async, so we need to run it in a background thread. Streamlit already has an event loop running in the background, so asyncio.run() conflicts with it and could therefore neither be used.
+
+The AsyncRunner creates a dedicated background thread with its own event loop. With AsyncRunner, we bridge the gap by running async operations in a background thread with its own event loop, then waiting for results synchronously.
 
 `streamlit run scripts/openai/_10_streamlit_app.py` in console to start it up
 """
