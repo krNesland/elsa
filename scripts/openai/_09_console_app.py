@@ -3,6 +3,7 @@ A simple console application for interacting with the agent.
 """
 
 import asyncio
+import json
 
 from agents import Agent, Runner, SQLiteSession
 from agents.mcp.server import MCPServerStreamableHttp, MCPServerStreamableHttpParams
@@ -11,6 +12,8 @@ from dotenv import load_dotenv
 from scripts.openai import MCP_SERVER_URL, OPENAI_MODEL
 
 load_dotenv()
+
+RUN_VERBOSE = False
 
 
 titanic_mcp_server = MCPServerStreamableHttp(
@@ -55,6 +58,12 @@ async def main():
             # Run the agent with the same session to maintain conversation history
             print("Agent: ", end="", flush=True)
             result = await Runner.run(agent, user_input, session=session)
+
+            if RUN_VERBOSE:
+                items = await session.get_items()
+                for item in items:
+                    print(json.dumps(item, indent=4))
+
             print(result.final_output)
             print()  # Add blank line for readability
 
