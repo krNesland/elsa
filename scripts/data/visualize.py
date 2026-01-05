@@ -1,5 +1,5 @@
 """
-`streamlit run data/visualize.py` in console to start it up
+`streamlit run scripts/data/visualize.py` in console to start it up
 """
 
 import pandas as pd
