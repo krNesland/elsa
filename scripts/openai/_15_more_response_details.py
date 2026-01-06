@@ -1,7 +1,7 @@
 """
 Displaying a bit more of what is stored in the response object.
 
-Trying to force some reasoning by giving the model an impossible math problem. However, seems like OpenAI is hiding the reasoning as you can see that reasoning tokeans are used.
+Trying to force some reasoning by giving the model an impossible math problem. However, seems like OpenAI is hiding the reasoning as you can see that reasoning tokens are used.
 """
 
 import dotenv

@@ -29,7 +29,7 @@ response = client.responses.create(
         {
             "role": "user",
             "content": [
-                {"type": "input_text", "text": "Who is this television character?"},
+                {"type": "input_text", "text": "What is the person in the photo wearing?"},
                 {
                     "type": "input_image",
                     "file_id": file_id,
